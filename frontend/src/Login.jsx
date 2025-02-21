@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, closeModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -39,7 +39,8 @@ const Login = ({ setToken }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Zalogujj2</button>
+          <button type="submit">Zaloguj</button>
+          <button type="button" onClick={closeModal}>Anuluj</button>
         </form>
       </div>
     </div>
@@ -49,6 +50,7 @@ const Login = ({ setToken }) => {
 // ✅ Dodajemy PropTypes
 Login.propTypes = {
   setToken: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
 
 export default Login;

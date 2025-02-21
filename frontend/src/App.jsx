@@ -77,7 +77,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/rules" element={<Rules />} />
-                        <Route path="/register" element={<Register />} />
+                        <Route path="/register" element={token ? <p>Jesteś już zalogowany</p> : <Register />} />
                         <Route path="/player-dashboard" element={token ? <PlayerDashboard token={token} /> : <Home />} />
                     </Routes>
                 </div>
@@ -88,7 +88,7 @@ function App() {
                 <div className="modal-overlay">
                     <div className="modal active">
                         <h2>Logowanie</h2>
-                        <Login setToken={handleLoginSuccess} />
+                        <Login setToken={handleLoginSuccess} closeModal={() => setIsLoginModalOpen(false)} />
                         <div className="modal-buttons">
                             <button className="login-btn" onClick={() => document.querySelector('.modal form').submit()}>Zaloguj</button>
                             <button className="cancel-btn" onClick={() => setIsLoginModalOpen(false)}>Anuluj</button>
