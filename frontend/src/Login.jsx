@@ -39,7 +39,7 @@ const Login = ({ setToken }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Zalogujj</button>
+          <button type="submit">Zalogujj2</button>
         </form>
       </div>
     </div>
