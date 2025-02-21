@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Encode Sans Semi Condensed', sans-serif;
+}
+
+/* Pasek na górze */
+.top-bar {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 35px;
+    height: 150px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 10;
+}
+
+/* Logo i nazwa turnieju */
+.logo {
+    font-size: 32px;
+    font-weight: 700;
+    color: #383838;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 15px;
+}
+
+/* Panel użytkownika */
+.user-panel {
+    text-align: right;
+    color: #2C5EAA;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.user-panel span {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-panel img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+/* Układ strony */
+.container {
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 150px);
+}
+
+/* Nawigacja */
+.sidebar {
+    width: 300px;
+    background-color: #0051AD;
+    padding: 20px;
+    color: white;
+    flex-shrink: 0;
+}
+
+/* Nawigacja – poprawne odstępy, kolor i wygląd */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+.sidebar li img {
+    width: 26px;
+    margin-right: 12px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Główna część strony */
+.main-content {
+    flex-grow: 1;
+    background-color: #f0f5fa;
+    padding: 50px;
+    color: #383838;
+    overflow-y: auto;
+}
+
+/* 🔹 Naprawione okno logowania */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Na samej górze */
+}
+
+.modal {
+    background: white;
+    padding: 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    z-index: 10001;
+    width: 400px;
+}
+
+/* 🔹 Poprawka: Logowanie - inputy + przyciski */
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login-btn {
+    background-color: #2C5EAA;
+    color: white;
+    border: none;
+}
+
+.cancel-btn {
+    background-color: #ccc;
+    color: black;
+    border: none;
+}
+
+.message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    text-align: center;
+  }
