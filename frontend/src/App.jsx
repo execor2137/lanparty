@@ -7,6 +7,8 @@ import Rules from './Rules';
 import Login from './Login';
 import Register from './Register';
 import PlayerDashboard from './PlayerDashboard';
+import TeamDashboard from './TeamDashboard'; // Importujemy nowy komponent
+import Sponsors from './Sponsors'; // Importujemy nowy komponent
 import lanLogo from './assets/lan.svg';
 import loginIcon from './assets/login.svg';
 import logoutIcon from './assets/logout.svg';
@@ -79,8 +81,11 @@ function App() {
                         <Route path="/rules" element={<Rules />} />
                         <Route path="/register" element={token ? <p>Jesteś już zalogowany</p> : <Register />} />
                         <Route path="/player-dashboard" element={token ? <PlayerDashboard token={token} /> : <Home />} />
+                        <Route path="/team-dashboard" element={token ? <TeamDashboard token={token} /> : <Home />} />
                     </Routes>
                 </div>
+
+                <Sponsors /> {/* Dodajemy komponent Sponsors */}
             </div>
 
             {/* Modal logowania */}

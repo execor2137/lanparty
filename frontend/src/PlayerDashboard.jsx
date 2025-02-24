@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import './styles.css'; // Importujemy plik CSS
 
 function PlayerDashboard({ token }) {
   const [user, setUser] = useState(null);
@@ -62,32 +63,33 @@ function PlayerDashboard({ token }) {
 
   return user ? (
     <div>
-      <h1>Witaj, {user.username}!</h1>
-      <br></br><br></br>
-      <h2>Twoje ustawienia:</h2>
-      <p>Nick: {user.nick || "Brak"}</p>
-      <p>Wersja gry: {user.game_version}</p>
-      <br></br><br></br>
-      <h2>Zmień ustawienia:</h2>
-      <form onSubmit={handleUpdateProfile}>
-        <input
-          type="text"
-          placeholder="Nick"
-          value={nick}
-          onChange={(e) => setNick(e.target.value)}
-          required
-        />
+      <h1>Witaj, {user.username}!</h1><br></br>
+      <div className="settings-container">
+        <h2 className="settings-header">Twoje ustawienia:</h2>
+        <p className="settings-text">Nick: {user.nick || "Brak"}</p>
+        <p className="settings-text">Wersja gry: {user.game_version}</p>
         <br></br>
-        <select value={gameVersion} onChange={(e) => setGameVersion(e.target.value)}>
-          <option value="Steam">Steam</option>
-          <option value="Non-Steam">Non-Steam</option>
-          <option value="Steam+NS">Steam + Non-Steam</option>
-        </select>
+        <h2 className="settings-header">Zmień ustawienia:</h2>
+        <form onSubmit={handleUpdateProfile}>
+          <input
+            type="text"
+            placeholder="Nick"
+            value={nick}
+            onChange={(e) => setNick(e.target.value)}
+            required
+          />
+          <br></br>
+          <select value={gameVersion} onChange={(e) => setGameVersion(e.target.value)}>
+            <option value="Steam">Steam</option>
+            <option value="Non-Steam">Non-Steam</option>
+            <option value="Steam+NS">Steam + Non-Steam</option>
+          </select>
+          <br></br>
+          <button type="submit">Zapisz</button>
+        </form>
         <br></br>
-        <button type="submit">Zapisz</button>
-      </form>
-      <br></br>
-      {message && <h2 className="message">{message}</h2>}
+        {message && <h2 className="message">{message}</h2>}
+      </div>
     </div>
   ) : (
     <p>Ładowanie...</p>
